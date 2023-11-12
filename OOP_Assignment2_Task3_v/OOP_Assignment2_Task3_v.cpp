@@ -10,13 +10,11 @@ using namespace std;
 
 int main()
 {
-	cout << FloatAdder::toInt(2) << endl;
 	ConsoleOutput out;
 	Machine m(&out, 2);
 	MemortUnit* ram = m.getRam();
 	MemortUnit* cont = m.getConroller();
 	MemortUnit* reg = m.getRegistors();
 	ram->writeInstruction(2, 0x6012);
-
 	return 0;
 }
