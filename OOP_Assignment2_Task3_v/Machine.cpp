@@ -12,6 +12,7 @@ class Machine
 public:
 	Machine(MachineOutput *output, int startPos = 0)
 	{
+		this->output = output;
 		ram = new Ram(256, output);
 		registors = new MemortUnit(16, output);
 		controller = new MemortUnit(4, output);
@@ -60,7 +61,14 @@ private:
 	}
 	void execute(Operator* op)
 	{
-		op->apply();
+		if (op == NULL)
+		{
+			output->Print("Invalid instruction");
+		}
+		else
+		{
+			op->apply();
+		}
 		running = controller->get(3) != 0;
 	}
 	bool running = true;
@@ -71,5 +79,6 @@ private:
 	// 3 -> != 0 : running, == 0 : stopped
 	MemortUnit* controller;
 	Decoder* decoder;
+	MachineOutput* output;
 };
 #endif

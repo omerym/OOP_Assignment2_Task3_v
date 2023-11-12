@@ -4,7 +4,6 @@
 #include <iostream>
 #include "Machine.cpp"
 #include "ConsoleOutput.cpp"
-#include "FloatAdder.cpp"
 
 using namespace std;
 
@@ -15,6 +14,8 @@ int main()
 	MemortUnit* ram = m.getRam();
 	MemortUnit* cont = m.getConroller();
 	MemortUnit* reg = m.getRegistors();
-	ram->writeInstruction(2, 0x6012);
+	ram->writeInstruction(2, 0x1000);
+	m.step();
+	cout << m.isRunning() << endl;
 	return 0;
 }
