@@ -3,30 +3,25 @@
 #include "MemoryUnit.cpp"
 #include "Ram.cpp"
 #include <bitset>
+#include "machine.cpp"
 class loadRegister: public Operator
 {
   private:
   MemortUnit* Current_ram; 
   MemortUnit* Current_register;
+  MemortUnit* controller;
   unsigned char address1;
   int Mem;
   public:
-  loadRegister(MemortUnit* Current_ram,MemortUnit* Current_register): Operator(Current_ram,Current_register) {};
-  void initialize(auto instruct)
-  {
-    unsigned char* start=instruct;
-    Address1=start;
-    unsigned char AddressH=start+4;
-    unsigned char AddressH2=Start+8;
-    bitset<4> Bits1(AddressH);
-    bitset<4> Bits2(AddressH2);
-    Mem=int(Bits1+Bits2);
-    delete start;
-  }
+  loadRegister(MemortUnit* Current_ram,MemortUnit* Current_register, MemortUnit* controller): Operator(Current_ram,Current_register,controller) {};
+
   void apply()
   {
-    unsigned char BitPattern=Current_ram->get(address1);
-    Current_register->set(Current_register->get(Mem),BitPattern);
+    unsigned short instruct= controller->readInstruction(1);
+    unsigned char reg= (instruct & 0x0f00)>>8;
+    unsigned char address=(instruct & 0x00ff);
+    unsigned char BitPattern=Current_ram->get((unsigned char)address);
+    Current_register->set((unsigned char)reg,BitPattern);
 
   }
 }

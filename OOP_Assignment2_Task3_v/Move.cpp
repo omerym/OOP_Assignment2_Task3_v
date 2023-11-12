@@ -16,10 +16,9 @@ class StoreMemCell: public Operator
   void apply()
   {
     unsigned short instruct= controller->readInstruction(1);
-    unsigned char reg= (instruct & 0x0f00)>>8;
-    unsigned char address=(instruct & 0x00ff);
-    unsigned char BitPattern=Current_register->get((unsigned char)reg);
-    Current_ram->set((unsigned char)address,BitPattern);
+    unsigned char R= (instruct & 0x00f0)>>4;
+    unsigned char S=(instruct & 0x000f);
+    Current_ram->set(R,S);
 
   }
 }
