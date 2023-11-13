@@ -13,6 +13,7 @@ public:
 	unsigned short readInstruction(unsigned char pos);
 	void writeInstruction(unsigned char pos,unsigned short instruction);
 	virtual void set(unsigned char pos, unsigned char value);
+int *at(unsigned char pos);
 
 protected:
 	MachineOutput *output;
@@ -62,5 +63,13 @@ void MemortUnit::set(unsigned char pos, unsigned char value)
 		throw out_of_range("Outside memory position");
 	}
 	_data[pos] = value;
+}
+int * MemortUnit::at(unsigned char pos)
+{
+	if (pos < 0 || pos >= _size)
+	{
+		throw out_of_range("Outside memory position");
+	}
+	return _data + pos;
 }
 #endif // !_MemoryUnit

@@ -1,3 +1,6 @@
+#ifndef _LoadToRegsiter
+#define _LoadToRegsiter
+
 #include "Operation.cpp"
 #include "iostream"
 #include "MemoryUnit.cpp"
@@ -17,3 +20,4 @@ class loadToRegister: public Operator
   }
 }
 ;
+#endif
