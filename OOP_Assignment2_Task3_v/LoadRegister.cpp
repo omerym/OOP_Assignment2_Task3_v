@@ -4,9 +4,6 @@
 #include "Operation.cpp"
 #include "iostream"
 #include "MemoryUnit.cpp"
-#include "Ram.cpp"
-#include <bitset>
-#include "machine.cpp"
 class loadRegister: public Operator
 {
   public:
