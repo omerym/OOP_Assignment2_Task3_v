@@ -5,10 +5,10 @@
 #include "iostream"
 #include "MemoryUnit.cpp"
 #include "Ram.cpp"
-class StoreMemCell: public Operator
+class Move: public Operator
 {
   public:
-  StoreMemCell(MemortUnit* Current_ram,MemortUnit* Current_register, MemortUnit* controller): Operator(Current_ram,Current_register,controller) {};
+  Move(MemortUnit* Current_ram,MemortUnit* Current_register, MemortUnit* controller): Operator(Current_ram,Current_register,controller) {};
 
   void apply()
   {

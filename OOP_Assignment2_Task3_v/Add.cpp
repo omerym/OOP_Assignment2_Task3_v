@@ -1,10 +1,10 @@
 #ifndef _AddOperation
 #define _AddOperation
 #include"Operation.cpp"
-class AddOperation : public Operator
+class Add : public Operator
 {
 public:
-	AddOperation(MemortUnit* ram, MemortUnit* registor, MemortUnit* controller) : Operator(ram,registor,controller) {}
+	Add(MemortUnit* ram, MemortUnit* registor, MemortUnit* controller) : Operator(ram,registor,controller) {}
 	virtual void apply()
 	{
           unsigned short instruct= controller->readInstruction(1);

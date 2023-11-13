@@ -5,10 +5,10 @@
 #include "iostream"
 #include "MemoryUnit.cpp"
 #include "Ram.cpp"
-class loadToRegister: public Operator
+class LoadToRegister: public Operator
 {
   public:
-  loadToRegister(MemortUnit* Current_ram,MemortUnit* Current_register, MemortUnit* controller): Operator(Current_ram,Current_register,controller) {};
+  LoadToRegister(MemortUnit* Current_ram,MemortUnit* Current_register, MemortUnit* controller): Operator(Current_ram,Current_register,controller) {};
 
   void apply()
   {
