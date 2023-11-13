@@ -34,8 +34,7 @@ int main(){
     char bn[] = "C:\\Users\\Abdallah\\Desktop\\bashar";
     ifstream iff;
     iff.open(bn);
-    int s = 3;
-    MemortUnit test(256);
+    MemortUnit test(5);
     FileReader fr(&iff);
     fr.read(&test);
     print(&test);
