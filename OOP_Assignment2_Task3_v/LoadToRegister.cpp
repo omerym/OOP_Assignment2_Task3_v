@@ -12,7 +12,7 @@ class loadToRegister: public Operator
     unsigned short instruct= controller->readInstruction(1);
     unsigned char reg= (instruct & 0x0f00)>>8;
     unsigned char address=(instruct & 0x00ff);
-    reg->set((unsigned char)reg,address);
+    registors->set((unsigned char)reg,address);
 
   }
 }
