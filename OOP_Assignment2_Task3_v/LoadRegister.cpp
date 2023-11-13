@@ -1,3 +1,6 @@
+#ifndef _LoadRegister
+#define _LoadRegister
+
 #include "Operation.cpp"
 #include "iostream"
 #include "MemoryUnit.cpp"
@@ -20,3 +23,4 @@ class loadRegister: public Operator
   }
 }
 ;
+#endif
