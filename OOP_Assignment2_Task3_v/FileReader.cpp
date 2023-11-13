@@ -10,19 +10,16 @@ class FileReader{
         this -> input = input;
         
     }   
-    ifstream iff;
     
     void read(MemortUnit* omer){
-        for(int i =0;i<256;i++){
-            if (!iff.eof()) {
-                cout << "The file is not finished." << endl;
-                
-                } break;
+        int i = 0;
+        while(input && i < omer->size())
+            {
             int c;
             (*input)>>hex>>c;
-            omer->set(i,c);
-            
-            
+            *(omer->at(i)) = c;
+                i++;
+            }
         }
     }
     
@@ -38,10 +35,10 @@ int main(){
     ifstream iff;
     iff.open(bn);
     int s = 3;
-    unsigned char * ya= new unsigned char(5);
+    MemortUnit test(256);
     FileReader fr(&iff);
-    fr.read(ya,s);
-    print(ya,s);
+    fr.read(&test);
+    print(&test);
     return 0; 
 
 
