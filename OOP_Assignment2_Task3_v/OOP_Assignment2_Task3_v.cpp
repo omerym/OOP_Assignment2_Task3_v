@@ -16,13 +16,14 @@ int main()
 	fs.open(c);
 	FileReader fr(&fs);
 	ConsoleOutput out;
-	Machine m(&out, 2);
+	Machine m(&out);
 	MemortUnit* ram = m.getRam();
 	MemortUnit* cont = m.getConroller();
 	MemortUnit* reg = m.getRegistors();
 	fr.read(ram);
 	m.update();
-	ram->writeInstruction(2, 0x1000);
+	m.step();
+	m.update();
 	m.step();
 	m.update();
 	return 0;

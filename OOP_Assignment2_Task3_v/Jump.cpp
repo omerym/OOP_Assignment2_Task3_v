@@ -12,7 +12,7 @@ public:
 		unsigned char address = (instruction & 0x000f);
 		if (registors->get(r) == registors->get(0)) 
 		{
-			controller->set(0, ram->get(address));
+			controller->set(0, address);
 		}
 	}
 };

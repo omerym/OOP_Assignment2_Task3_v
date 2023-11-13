@@ -15,7 +15,7 @@ class Move: public Operator
     unsigned short instruct= controller->readInstruction(1);
     unsigned char R= (instruct & 0x00f0)>>4;
     unsigned char S=(instruct & 0x000f);
-    ram->set(R,S);
+    registors->set(S,registors->get(R));
 
   }
 }

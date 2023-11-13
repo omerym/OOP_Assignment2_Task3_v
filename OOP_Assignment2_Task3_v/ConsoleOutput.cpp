@@ -37,7 +37,7 @@ public:
 	}
 	virtual void UpdateCurrentInstruction(unsigned short val)
 	{
-		(*output) << "Current Instruction: " << hex << setfill('0') << setw(2) << (int)val << endl;
+		(*output) << "Last Instruction: " << hex << setfill('0') << setw(2) << (int)val << endl;
 	}
 };
 #endif // !_ConsoleOutput
