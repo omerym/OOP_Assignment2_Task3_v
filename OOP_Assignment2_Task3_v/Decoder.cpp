@@ -8,6 +8,7 @@
 #include "Operation.cpp"
 #include "StopOperation.cpp"
 #include "LoadRegistor.cpp"
+#include "LoadToRegister.cpp"
 using namespace std;
 class Decoder
 {
@@ -16,6 +17,7 @@ public:
 	{
 		map[0xc000] = new StopOperation(ram, registors, controller);
 		map[0x1000] = new LoadRegistor(ram, registors, controller);
+		map[0x2000] = new LoadToRegistor(ram, registors, controller);
 	}
 	Operator* getOperation(unsigned short instruction)
 	{
