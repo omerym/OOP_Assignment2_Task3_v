@@ -35,7 +35,7 @@ public:
 	{
 		(*output) << "Program Counter: " << hex << setfill('0') << setw(2) << (int)val << endl;
 	}
-	virtual void UpdateCurrentInstruction(unsigned short val)
+	virtual void UpdateLastInstruction(unsigned short val)
 	{
 		(*output) << "Last Instruction: " << hex << setfill('0') << setw(2) << (int)val << endl;
 	}
