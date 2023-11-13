@@ -9,7 +9,7 @@ public:
 	{
 		unsigned short instruction = controller->readInstruction(1);
 		unsigned char r = (instruction & 0x0f00) >> 8;
-		unsigned char address = (instruction & 0x000f);
+		unsigned char address = (instruction & 0x00ff);
 		if (registors->get(r) == registors->get(0)) 
 		{
 			controller->set(0, address);
