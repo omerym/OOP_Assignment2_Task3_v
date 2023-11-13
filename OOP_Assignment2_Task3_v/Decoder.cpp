@@ -12,10 +12,14 @@
 #include "StoreMemCell.cpp"
 #include "Move.cpp"
 #include "Add.cpp"
+#include "Operation.cpp"
 using namespace std;
 class Decoder
 {
+private: 
+unordered_map<short int,Operator*>map;
 public:
+	
 	Decoder(MemortUnit* ram, MemortUnit* registors, MemortUnit* controller)
 	{
 		map[0xc000] = new StopOperation(ram, registors, controller);
