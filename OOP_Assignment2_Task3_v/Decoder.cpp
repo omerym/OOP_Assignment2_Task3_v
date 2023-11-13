@@ -12,7 +12,7 @@
 #include "StoreMemCell.cpp"
 #include "Move.cpp"
 #include "Add.cpp"
-#include "JumpOperation.cpp"
+#include "jump.cpp"
 #include "Operation.cpp"
 using namespace std;
 class Decoder
