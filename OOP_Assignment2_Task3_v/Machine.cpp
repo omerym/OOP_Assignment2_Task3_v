@@ -41,12 +41,21 @@ public:
 	{
 		return running;
 	}
+	void update()
+	{
+		output->UpdateProgramCounter(controller->get(0));
+		output->UpdateCurrentInstruction(controller->readInstruction(1));
+		output->PrintTitle(string("Ram: \n"));
+		ram->update();
+		output->PrintTitle(string("Registors: \n"));
+		registors->update();
+	}
 	~Machine()
 	{
+		delete decoder;
 		delete ram;
 		delete registors;
 		delete controller;
-		delete decoder;
 	}
 private:
 	void fetch()

@@ -8,10 +8,12 @@ class MemortUnit
 public:
 	MemortUnit(int size, MachineOutput *output);
 	~MemortUnit();
+	void fill(unsigned char val);
 	int size();
 	unsigned char get(unsigned char pos);
 	unsigned short readInstruction(unsigned char pos);
 	void writeInstruction(unsigned char pos,unsigned short instruction);
+	void update();
 	virtual void set(unsigned char pos, unsigned char value);
 unsigned char *at(unsigned char pos);
 
@@ -56,6 +58,13 @@ void MemortUnit::writeInstruction(unsigned char pos, unsigned short instruction)
 	set(pos, (instruction & 0xff00) >> 8);
 	set(pos + 1, (instruction & 0x00ff));
 }
+void MemortUnit::update()
+{
+	for (int i = 0; i < _size; i++)
+	{
+		output->UpdateRam(_data[i], i);
+	}
+}
 void MemortUnit::set(unsigned char pos, unsigned char value)
 {
 	if (pos < 0 || pos >= _size)
@@ -63,6 +72,14 @@ void MemortUnit::set(unsigned char pos, unsigned char value)
 		throw out_of_range("Outside memory position");
 	}
 	_data[pos] = value;
+}
+
+void MemortUnit::fill(unsigned char val)
+{
+	for (int i = 0; i < _size; i++)
+	{
+		_data[i] = val;
+	}
 }
 unsigned char * MemortUnit::at(unsigned char pos)
 {

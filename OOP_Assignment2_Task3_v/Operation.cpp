@@ -10,7 +10,7 @@ protected:
 	MemortUnit* controller;
 public:
 	virtual void apply() = 0;
-	Operator(MemortUnit* ram, MemortUnit* registor, MemortUnit* controller)
+	Operator(MemortUnit* ram, MemortUnit* registors, MemortUnit* controller)
 	{
 		this->ram = ram;
 		this->registors = registors;

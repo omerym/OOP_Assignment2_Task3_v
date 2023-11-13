@@ -2,19 +2,42 @@
 #define _ConsoleOutput
 #include <string>
 #include <iostream>
+#include <iomanip>
 #include "MachineOutput.cpp"
 using namespace std;
 class ConsoleOutput : public MachineOutput
 {
 	ostream* output;
 public:
-	ConsoleOutput(ostream *ostream = &cout)
+	ConsoleOutput(ostream* ostream = &cout)
 	{
 		output = ostream;
 	}
 	virtual void Print(string s)
 	{
 		*output << s << endl;
+	}	
+	virtual void PrintTitle(string s)
+	{
+		Print(s);
+	}
+	virtual void UpdateRam(unsigned char val, unsigned char pos)
+	{
+		(*output) << hex << setfill('0') << setw(2) << (int)pos << ":       ";
+		(*output) << hex << setfill('0') << setw(2) << (int)val << endl;
+	}
+	virtual void UpdateRegistors(unsigned char val, unsigned char pos)
+	{
+		(*output) << hex << setfill('0') << setw(2) << (int)pos << ":       ";
+		(*output) << hex << setfill('0') << setw(2) << (int)val << endl;
+	}
+	virtual void UpdateProgramCounter(unsigned char val)
+	{
+		(*output) << "Program Counter: " << hex << setfill('0') << setw(2) << (int)val << endl;
+	}
+	virtual void UpdateCurrentInstruction(unsigned short val)
+	{
+		(*output) << "Current Instruction: " << hex << setfill('0') << setw(2) << (int)val << endl;
 	}
 };
 #endif // !_ConsoleOutput

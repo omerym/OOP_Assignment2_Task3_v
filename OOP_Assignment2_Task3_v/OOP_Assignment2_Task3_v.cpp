@@ -2,23 +2,28 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include "Machine.cpp"
 #include "ConsoleOutput.cpp"
+#include "FileReader.cpp"
 
 using namespace std;
 
 int main()
 {
+	char c[] = "C:\\Users\\Omer\\Desktop\\A.txt";
+	fstream fs;
+	fs.open(c);
+	FileReader fr(&fs);
 	ConsoleOutput out;
 	Machine m(&out, 2);
 	MemortUnit* ram = m.getRam();
 	MemortUnit* cont = m.getConroller();
 	MemortUnit* reg = m.getRegistors();
-	ram->set(0,1);
-	*(ram->at(0)) = 2;
-	cout << (int)(ram->get(0))<<endl;
+	fr.read(ram);
+	m.update();
 	ram->writeInstruction(2, 0x1000);
 	m.step();
-	cout << m.isRunning() << endl;
+	m.update();
 	return 0;
 }

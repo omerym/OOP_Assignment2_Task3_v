@@ -15,7 +15,6 @@ class LoadRegister: public Operator
     unsigned char address=(instruct & 0x00ff);
     unsigned char BitPattern=ram->get((unsigned char)address);
     registors->set((unsigned char)reg,BitPattern);
-
   }
 }
 ;
