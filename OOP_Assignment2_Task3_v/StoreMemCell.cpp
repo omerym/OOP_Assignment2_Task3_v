@@ -1,3 +1,6 @@
+#ifndef _StoreMemCell
+#define _StoreMemCell
+
 #include "Operation.cpp"
 #include "iostream"
 #include "MemoryUnit.cpp"
@@ -19,3 +22,4 @@ class StoreMemCell: public Operator
   }
 }
 ;
+#endif
