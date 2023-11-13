@@ -15,11 +15,11 @@ public:
 	}
 	virtual void Print(string s)
 	{
-		*output << s << endl;
+		*output << "Output:  " << s << endl;
 	}	
 	virtual void PrintTitle(string s)
 	{
-		Print(s);
+		*output << s;
 	}
 	virtual void UpdateRam(unsigned char val, unsigned char pos)
 	{

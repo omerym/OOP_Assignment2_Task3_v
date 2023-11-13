@@ -10,6 +10,6 @@ public:
 	virtual void UpdateRam(unsigned char val, unsigned char pos) = 0;
 	virtual void UpdateRegistors(unsigned char val, unsigned char pos) = 0;
 	virtual void UpdateProgramCounter(unsigned char val) = 0;
-	virtual void UpdateCurrentInstruction(unsigned short val) = 0;
+	virtual void UpdateLastInstruction(unsigned short val) = 0;
 };
 #endif // !_MachineOutput

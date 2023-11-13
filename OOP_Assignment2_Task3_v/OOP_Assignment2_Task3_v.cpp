@@ -22,9 +22,10 @@ int main()
 	MemortUnit* reg = m.getRegistors();
 	fr.read(ram);
 	m.update();
-	m.step();
-	m.update();
-	m.step();
+	while (m.isRunning())
+	{
+		m.step();
+	}
 	m.update();
 	return 0;
 }

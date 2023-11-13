@@ -44,7 +44,7 @@ public:
 	void update()
 	{
 		output->UpdateProgramCounter(controller->get(0));
-		output->UpdateCurrentInstruction(controller->readInstruction(1));
+		output->UpdateLastInstruction(controller->readInstruction(1));
 		output->PrintTitle(string("Ram: \n"));
 		ram->update();
 		output->PrintTitle(string("Registors: \n"));
