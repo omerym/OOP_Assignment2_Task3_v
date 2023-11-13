@@ -17,7 +17,7 @@ using namespace std;
 class Decoder
 {
 private: 
-unordered_map<short int,Operator*>map;
+unordered_map<unsigned short,Operator*>map;
 public:
 	
 	Decoder(MemortUnit* ram, MemortUnit* registors, MemortUnit* controller)
