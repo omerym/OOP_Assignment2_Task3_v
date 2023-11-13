@@ -12,6 +12,7 @@
 #include "StoreMemCell.cpp"
 #include "Move.cpp"
 #include "Add.cpp"
+#include "JumpOperation.cpp"
 #include "Operation.cpp"
 using namespace std;
 class Decoder
@@ -27,6 +28,7 @@ public:
 		map[0x3000] = new StoreMemCell(ram, registors, controller);
 		map[0x4000] = new Move(ram, registors, controller);
 		map[0x5000] = new Add(ram, registors, controller);
+		map[0xb000] = new JumpOperation(ram, registors, controller);
 		map[0xc000] = new StopOperation(ram, registors, controller);
 	}
 	Operator* getOperation(unsigned short instruction)
