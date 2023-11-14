@@ -16,7 +16,6 @@ int main()
 	cin >> c;
 	fstream fs;
 	fs.open(c);
-	cout << "Enter program starting position: ";
 	FileReader fr(&fs);
 	ConsoleOutput co;
 	Machine machine(&co);
