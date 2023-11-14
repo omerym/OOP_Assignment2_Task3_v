@@ -16,10 +16,13 @@ int main()
 	cin >> c;
 	fstream fs;
 	fs.open(c);
+	int ofset;
+	cout << "Enter program starting position: ";
+	cin >> ofset;
 	FileReader fr(&fs);
 	ConsoleOutput co;
 	Machine machine(&co);
-	fr.read(machine.getRam());
+	fr.read(machine.getRam(), ofset);
 	bool run = true;
 	while (machine.isRunning() && run)
 	{
