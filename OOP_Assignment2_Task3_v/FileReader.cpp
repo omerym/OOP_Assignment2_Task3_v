@@ -4,13 +4,15 @@ using namespace std;
 class FileReader {
 private:
     istream* input;
+unsigned char ofset;
 public:
-    FileReader(istream* input)
+    FileReader(istream* input, unsigned char ofset = 0)
     {
         this->input = input;
+        this->ofset = ofset
     }
     void read(MemortUnit* omer) {
-        int i = 0;
+        int i = ofset;
         while (input && i < omer->size())
         {
 
